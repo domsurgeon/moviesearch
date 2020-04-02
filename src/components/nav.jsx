@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Input } from 'antd'
 
-const Home = styled.div`
+const Home = styled.a`
   align-self: center;
   display: flex;
   height: 64px;
@@ -28,7 +28,7 @@ const Nav = props => {
   return (
     <Wrapper>
       <Left>
-        <Home>
+        <Home href='/movies/'>
           <h1>MovieSearch</h1>
         </Home>
       </Left>

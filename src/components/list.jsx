@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Table } from 'antd'
 import { useSelector } from 'react-redux'
+import manifest from 'moviesearch/manifest'
 
 const Poster = styled.div`
   background-color: black;
@@ -16,7 +17,7 @@ const columns = [
         {(record.poster_path || record.backdrop_path) && (
           <Poster>
             <img
-              src={`http://image.tmdb.org/t/p/w185/${record.poster_path ||
+              src={`${manifest.imagesBaseUrl}${record.poster_path ||
                 record.backdrop_path}`}
               style={{ width: 120 }}
             />
@@ -30,7 +31,13 @@ const columns = [
   },
   {
     dataIndex: 'overview',
-    title: 'Overview'
+    title: 'Overview',
+    render: (text, record) => (
+      <>
+        <p>{text}</p>
+        <a href={`/movies/${record.id}`}>View more</a>
+      </>
+    )
   },
   {
     align: 'center',
@@ -50,6 +57,17 @@ const List = () => {
         {`
           .ant-table-cell {
             vertical-align: top;
+            font-size: 18px;
+            font-weight: 700;
+
+          }
+          .ant-table-cell:last-child{
+            font-size: 34px;
+          }
+          .ant-table{
+            max-width: 900px;
+            width: 90%;
+            margin: auto;
           }
         `}
       </style>

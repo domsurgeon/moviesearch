@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 import manifest from 'moviesearch/manifest'
 
 const useApi = () => {
@@ -39,6 +38,18 @@ const useApi = () => {
         console.error(error.toString())
       }
       return movies
+    },
+    movie: async id => {
+      let movie = {}
+      try {
+        const response = await axios.get(
+          `${manifest.api}/movie/${id}?api_key=${manifest.apiKey}`
+        )
+        movie = (response.status === 200 && response.data) || movie
+      } catch (error) {
+        console.error(error.toString())
+      }
+      return movie
     }
   }
 }

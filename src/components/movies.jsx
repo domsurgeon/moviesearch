@@ -9,7 +9,7 @@ import { Details, Footer, List, Nav } from 'moviesearch/components'
 import { updateList } from 'moviesearch/store/list'
 import { useApi } from 'moviesearch/hooks'
 
-const Main = () => {
+const Movies = () => {
   const api = useApi()
   const dispatch = useDispatch()
   const { id } = useParams()
@@ -51,7 +51,7 @@ const Main = () => {
         <Nav search={search} searching={searching} />
       </Layout.Header>
       <Layout.Content style={{ marginTop: 64, padding: '0 50px' }}>
-        {id ? <Details id={id} /> : <List />}
+        {id && !term ? <Details id={id} /> : <List />}
       </Layout.Content>
       <Layout.Footer
         style={{
@@ -69,4 +69,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Movies
