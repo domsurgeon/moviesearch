@@ -1,0 +1,60 @@
+{
+  "name": "moviesearch",
+  "version": "1.0.0",
+  "description": "Searching movies",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack --config webpack.prod.js",
+    "clean": "rimraf yarn-*.log && rimraf yarn.lock && rimraf node_modules && yarn cache clean",
+    "lint": "prettier-standard --lint",
+    "nuke": "yarn run clean && yarn",
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "test": "jest",
+    "upgrade": "npx upgradeps"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.3.2",
+    "antd": "^4.1.0",
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^4.0.4",
+    "jest": "^25.2.6",
+    "prettier-standard": "^16.2.1",
+    "rimraf": "^3.0.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.3",
+    "upgradeps": "^1.3.8",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "author": "Matias Arcaya <matias.aa@gmail.com>",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
