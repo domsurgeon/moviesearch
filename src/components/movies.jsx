@@ -50,7 +50,7 @@ const Movies = () => {
       >
         <Nav search={search} searching={searching} />
       </Layout.Header>
-      <Layout.Content style={{ marginTop: 64, padding: '0 50px' }}>
+      <Layout.Content>
         {id && !term ? <Details id={id} /> : <List />}
       </Layout.Content>
       <Layout.Footer

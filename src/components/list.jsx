@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Table } from 'antd'
+import { Link } from 'moviesearch/components'
 import { useSelector } from 'react-redux'
 import manifest from 'moviesearch/manifest'
 
@@ -11,8 +12,8 @@ const Poster = styled.div`
 
 const columns = [
   {
-    dataIndex: 'title',
-    render: (text, record, index) => (
+    dataIndex: 'poster_path',
+    render: (text, record) => (
       <>
         {(record.poster_path || record.backdrop_path) && (
           <Poster>
@@ -23,7 +24,6 @@ const columns = [
             />
           </Poster>
         )}
-        <p>{text}</p>
       </>
     ),
     title: 'Title',
@@ -34,8 +34,9 @@ const columns = [
     title: 'Overview',
     render: (text, record) => (
       <>
-        <p>{text}</p>
-        <a href={`/movies/${record.id}`}>View more</a>
+        <h3>{ record.title }</h3>
+        <p>{ text }</p>
+        <Link href={ `/movies/${ record.id }` }>View more</Link>
       </>
     )
   },
@@ -61,13 +62,19 @@ const List = () => {
             font-weight: 700;
 
           }
+          .ant-table-cell p{
+            font-weight: 500;
+          }
           .ant-table-cell:last-child{
             font-size: 34px;
           }
           .ant-table{
             max-width: 900px;
             width: 90%;
-            margin: auto;
+            margin: 80px auto -50px;
+          }
+          .ant-table-pagination.ant-pagination{
+            margin-right: 30px;
           }
         `}
       </style>
