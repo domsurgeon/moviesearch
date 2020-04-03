@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useApi } from 'moviesearch/hooks'
 import styled from 'styled-components'
+
+import { useApi } from 'moviesearch/hooks'
 import { Link } from 'moviesearch/components'
 import manifest from 'moviesearch/manifest'
 
@@ -14,7 +15,7 @@ background-color: white;
 padding: 20px;
 width: 90%;
 display: grid;
-grid-template-columns: auto auto;
+grid-template-columns: 300px 540px;
 column-gap: 20px;
 
 h2 {
@@ -28,7 +29,7 @@ img {
 `
 const Values = styled.div`
   display: grid;
-  grid-template-columns: 100px auto;
+  grid-template-columns: 100px 420px;
   column-gap: 20px;
   margin-bottom: 15px;
 
@@ -43,6 +44,13 @@ grid-template-columns: auto;
 const Field = styled.div``
 const Value = styled.div`
   font-weight: 700;
+  a{
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
 `
 
 const Details = ({ id }) => {

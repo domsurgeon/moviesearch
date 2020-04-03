@@ -4,7 +4,6 @@ import { Layout } from 'antd'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { addMovies } from 'moviesearch/store/movies'
 import { Details, Footer, List, Nav } from 'moviesearch/components'
 import { updateList } from 'moviesearch/store/list'
 import { useApi } from 'moviesearch/hooks'
@@ -19,21 +18,17 @@ const Movies = () => {
 
   useEffect(() => {
     const fetch = async () => {
+      setSearching(true)
       const movies = term.length ? await api.search(term) : await api.popular()
-      dispatch(addMovies(movies))
-      dispatch(updateList(movies.map(movie => movie.id)))
+      dispatch(updateList(movies))
       setSearching(false)
     }
     fetch()
   }, [term])
 
   const search = debounce(value => {
-    if (value.length >= 3) {
-      setSearching(true)
+    if (value.length >= 3 || !value.length) {
       setTerm(value)
-    } else if (!value.length) {
-      setSearching(false)
-      setTerm('')
     }
   }, 300)
 

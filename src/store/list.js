@@ -5,8 +5,8 @@ const listSlice = createSlice({
   initialState: [],
   reducers: {
     updateList (state, action) {
-      const movieIds = action.payload
-      return movieIds
+      const movies = action.payload
+      return movies
     }
   }
 })

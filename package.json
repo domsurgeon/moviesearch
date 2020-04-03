@@ -9,7 +9,6 @@
     "lint": "prettier-standard --lint",
     "nuke": "yarn run clean && yarn",
     "start": "webpack-dev-server --config webpack.dev.js",
-    "test": "jest",
     "upgrade": "npx upgradeps"
   },
   "dependencies": {
@@ -31,7 +30,6 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^4.0.4",
-    "jest": "^25.2.6",
     "prettier-standard": "^16.2.1",
     "rimraf": "^3.0.2",
     "source-map-loader": "^0.2.4",

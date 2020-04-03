@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Table } from 'antd'
-import { Link } from 'moviesearch/components'
 import { useSelector } from 'react-redux'
+import { Table } from 'antd'
+
+import { Link } from 'moviesearch/components'
 import manifest from 'moviesearch/manifest'
 
 const Poster = styled.div`
@@ -50,7 +51,6 @@ const columns = [
 
 const List = () => {
   const listStore = useSelector(state => state.list)
-  const moviesStore = useSelector(state => state.movies)
 
   return (
     <>
@@ -79,8 +79,8 @@ const List = () => {
         `}
       </style>
       <Table
-        columns={columns}
-        dataSource={moviesStore.filter(movie => listStore.includes(movie.id))}
+        columns={ columns }
+        dataSource={ listStore }
         rowKey='id'
         scroll={{ y: window.innerHeight - 253 }}
       />
